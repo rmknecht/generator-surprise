@@ -1,0 +1,9 @@
+* text=auto
+*.css linguist-vendored
+*.less linguist-vendored
+<%= docRoot %>/assets/components/* linguist-vendored
+<%= docRoot %>/assets/js/build/* linguist-vendored
+<%= docRoot %>/assets/vendor/* linguist-vendored
+<%= docRoot %>/mockups/* linguist-vendored
+<%= docRoot %>/assets/js/build/*.js binary
+<%= docRoot %>/assets/css/*.css binary

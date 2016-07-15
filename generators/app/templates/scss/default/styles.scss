@@ -1,0 +1,54 @@
+/*
+ * styles.scss
+ * Global style imports. This file should contain @import rules only.
+ */
+
+/* Shared + Variables.
+================================================== */
+@import "variables";
+
+<% if (framework == "incBourbonNeat") { %>
+	@import "bourbon";
+	@import "neat-settings";
+	@import "neat";
+<% } %>
+
+<% if (framework == "incBootstrap") { %>
+	@import "vendor/bootstrap-settings";
+<% } %>
+
+	@import "mixins";
+
+/* Vendor + Component imports.
+================================================== */
+<% if (framework == "incBootstrap") { %>
+	@import "vendor/bootstrap-custom";
+<% } else  { %>
+	@import "../components/normalize-scss/_normalize.scss";
+<% } %>
+
+
+<% if (framework == "incFoundation") { %>
+	// Foundation 	v6
+	@import "vendor/settings";
+	@import "vendor/foundation";
+<% } %>
+
+/* Site specific imports.
+================================================== */
+	@import "base";
+
+<% if (framework == "incBourbonNeat") { %>
+	@import "grid";
+<% } %>
+
+//component modules
+	@import "modules/buttons";
+	@import "modules/forms";
+	@import "modules/header";
+	@import "modules/footer";
+
+//page modules
+<% if (addStyleGuide) { %>
+	@import "modules/styleguide";
+<% } %>

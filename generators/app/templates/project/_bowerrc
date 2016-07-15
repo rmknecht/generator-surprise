@@ -1,0 +1,3 @@
+{
+    "directory": "<%= docRoot %>/assets/components"
+}

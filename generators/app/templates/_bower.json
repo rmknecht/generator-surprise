@@ -1,0 +1,35 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.0.1",
+  "homepage": "http://www.surprisehighway.com",
+  "authors": [
+    "Rob Knecht <rob@surprisehighway.com>",
+    "Mike Kroll <mike@surprisehighway.com>"
+  ],
+  "description": "A project by Surpise Highway.",
+  "license": "UNLICENSED",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "<%= docRoot %>/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    <% if (components){ %>
+      <% components.forEach(function(component){ %>
+        "<%= component.name %>": "<%= component.version %>",
+      <% }); %>
+    <% } %>
+    <% if (framework == "incBootstrap"){ %>"bootstrap-sass": "~3.3.6",<% } %>
+    <% if (framework == "incFoundation"){ %>"foundation-sites": "~6.1.2",<% } %>
+    "html5shiv": "~3.7.0",
+    "jquery": "~2.0.3",
+    "modernizr": "~2.8.3",
+    "jquery-placeholder": "~2.1.2"
+  },
+  "devDependencies": {
+    <% if (framework != "incBootstrap"){ %>"normalize-scss": "~3.0.3"<% } %>
+  }
+}

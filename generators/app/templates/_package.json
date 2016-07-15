@@ -1,0 +1,32 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.0.1",
+  "homepage": "http://www.surprisehighway.com",
+  "authors": [
+    "Rob Knecht <rob@surprisehighway.com>",
+    "Mike Kroll <mike@surprisehighway.com>"
+  ],
+  "description": "A project by Surpise Highway.",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surprisehighway/"
+  },
+  "devDependencies": {
+    "gulp": "~3.9",
+    "gulp-concat": "~2.2.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-livereload": "~3.2.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "~0.3.2",
+    <% if (framework == "incBourbonNeat") { %>
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.8.0",
+    <% } %>
+    "gulp-watch": "~0.6.10",
+    "wiredep": "^3.0.0"
+  }
+}

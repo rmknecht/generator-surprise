@@ -1,0 +1,41 @@
+{
+  "name": "generator-surprise",
+  "version": "1.0.0",
+  "description": "Yeoman Generator for Surprise Highway project front ends.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "surprisehighway/generator-surprise",
+  "author": {
+    "name": "Surprise Highway",
+    "url": "https://github.com/surprisehighway"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators",
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "surprise highway",
+    "front-end",
+    "js",
+    "html5"
+    "bootstrap",
+    "bourbon",
+    "foundation",
+    "gulp"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "change-case": "^2.3.1",
+    "mkdirp": "^0.5.1",
+    "string-length": "^1.0.1",
+    "update-notifier": "^0.6.0",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
