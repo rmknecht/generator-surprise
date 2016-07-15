@@ -13,14 +13,14 @@
     "test": "mocha"
   },
   "files": [
-    "generators",
+    "generators"
   ],
   "keywords": [
     "yeoman-generator",
     "surprise highway",
     "front-end",
     "js",
-    "html5"
+    "html5",
     "bootstrap",
     "bourbon",
     "foundation",
