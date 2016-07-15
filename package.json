@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": "https://github.com/surprisehighway/generator-surprise.git",
-  "author": "Surprise Highway (https://github.com/surprisehighway)",
+  "author": "Surprise Highway (http://surprisehighway.com/)",
   "scripts": {
     "test": "mocha"
   },
