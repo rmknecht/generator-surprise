@@ -1,5 +1,5 @@
 {
-  "name": "@surprisehighway/generator-surprise",
+  "name": "generator-surprise",
   "version": "1.0.0",
   "description": "Yeoman Generator for Surprise Highway project front ends.",
   "license": "MIT",
