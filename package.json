@@ -4,10 +4,7 @@
   "description": "Yeoman Generator for Surprise Highway project front ends.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/surprisehighway/generator-surprise.git"
-  },
+  "repository": "https://github.com/surprisehighway/generator-surprise.git",
   "author": "Surprise Highway (https://github.com/surprisehighway)",
   "scripts": {
     "test": "mocha"
