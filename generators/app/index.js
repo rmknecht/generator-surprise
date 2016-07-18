@@ -13,14 +13,12 @@ var docRoot = null;
 module.exports = yeoman.generators.Base.extend({
 
 	_updateCheck: function(){
-		var notifier = updateNotifier({pkg: pkg});
-		var message = [];
+		var notifier = updateNotifier({
+			pkg: pkg,
+			updateCheckInterval: 1000 * 60 * 60 * 24 // one day
+		});
 
-		if (notifier.update) {
-			message.push('Update available: ' + chalk.green.bold(notifier.update.latest) + chalk.gray(' (current: ' + notifier.update.current + ')'));
-			message.push('Run ' + chalk.magenta('npm install -g ' + pkg.name) + ' to update.');
-			console.log(yosay(message.join(' '), {maxLength: stringLength(message[0])}));
-		}
+		notifier.notify({defer: false});
 	},
 
 	initializing: function() {
