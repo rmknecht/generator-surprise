@@ -32,10 +32,10 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	scss = require('gulp-sass'),
 	cssnano = require('gulp-cssnano'),
+	prefix = require('gulp-autoprefixer'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
-	watch = require('gulp-watch'),
 	<% if (framework == "incBourbonNeat") { %>
 		bourbon = require('bourbon'),
 		neat = require('bourbon-neat'),
@@ -52,6 +52,10 @@ gulp.task('styles', function() {
 		console.log(err.message);
 		this.emit('end');
 	})
+	.pipe(prefix({
+		browsers: ['last 2 versions', '> 1%', 'IE 9'],
+		cascade: false
+	}))
 	.pipe(gulp.dest(css_dir))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(cssnano())
