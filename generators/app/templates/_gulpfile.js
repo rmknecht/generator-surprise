@@ -58,7 +58,7 @@ gulp.task('styles', function() {
 	}))
 	.pipe(gulp.dest(css_dir))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(cssnano())
+	.pipe(cssnano({autoprefixer: false}))
 	.pipe(gulp.dest(css_dir))
 	.pipe(livereload());
 });
