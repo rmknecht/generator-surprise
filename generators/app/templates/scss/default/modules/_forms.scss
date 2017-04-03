@@ -25,11 +25,9 @@ select {
     background: #fafafa;
     border-radius: 4px;
 
-    <% if (framework == "incBourbonNeat") { %>
-    @include placeholder {
+    ::placeholder {
     	color: #aaa;
     }
-    <% } %>
 
     // IE placeholder class
     &.placeholder {
