@@ -37,9 +37,7 @@ describe('surprise:bourbon', function () {
       assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "neat-settings";');
       assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "neat";');
       assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "grid";');
-      assert.fileContent(docRoot+'/assets/scss/_base.scss', '@include selection');
       assert.fileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs}');
-      assert.fileContent(docRoot+'/assets/scss/modules/_forms.scss', '@include placeholder');
       assert.fileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
       assert.fileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
       assert.file(docRoot+'/assets/scss/_grid.scss');
@@ -93,9 +91,7 @@ describe('surprise:bourbon', function () {
         assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "neat-settings";');
         assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "neat";');
         assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "grid";');
-        assert.noFileContent(docRoot+'/assets/scss/_base.scss', '@include selection');
         assert.noFileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs}');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_forms.scss', '@include placeholder');
         assert.noFileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
         assert.noFileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
         assert.noFile(docRoot+'/assets/scss/_grid.scss');
