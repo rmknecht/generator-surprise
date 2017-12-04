@@ -20,7 +20,7 @@ describe('surprise:default-framework', function () {
     });
 
     it('creates the correct styleguide scss', function () {
-      assert.fileContent(docRoot + '/assets/scss/modules/_styleguide.scss', 'Default Styleguide SCSS');
+      assert.fileContent('source/scss/modules/_styleguide.scss', 'Default Styleguide SCSS');
     });
 
     it('creates the correct styleguide document', function () {

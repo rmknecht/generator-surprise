@@ -24,7 +24,7 @@
 <% if (framework == "incBootstrap") { %>
 	@import "vendor/bootstrap-custom";
 <% } else  { %>
-	@import "../components/normalize-scss/_normalize.scss";
+	@import "../../<%= docRoot %>/assets/components/normalize-scss/_normalize.scss";
 <% } %>
 
 

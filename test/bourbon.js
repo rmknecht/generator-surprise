@@ -23,9 +23,9 @@ describe('surprise:bourbon', function () {
     });
 
     it('generates the correct gulpfile', function () {
-      assert.fileContent('gulpfile.js', 'bourbon = require(\'bourbon\')');
-      assert.fileContent('gulpfile.js', 'neat = require(\'bourbon-neat\')');
-      assert.fileContent('gulpfile.js', '{includePaths: bourbon.includePaths.concat(neat.includePaths)}');
+      assert.fileContent('gulp-tasks/styles.js', "import bourbon from 'bourbon';");
+      assert.fileContent('gulp-tasks/styles.js', "import neat from 'bourbon-neat';");
+      assert.fileContent('gulp-tasks/styles.js', '{includePaths: bourbon.includePaths.concat(neat.includePaths)}');
     });
 
     it('generates the correct readme', function () {
@@ -33,15 +33,15 @@ describe('surprise:bourbon', function () {
     });
 
     it('generates the correct scss', function () {
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "bourbon";');
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "neat-settings";');
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "neat";');
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "grid";');
-      assert.fileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs}');
-      assert.fileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
-      assert.fileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
-      assert.file(docRoot+'/assets/scss/_grid.scss');
-      assert.file(docRoot+'/assets/scss/_neat-settings.scss');
+      assert.fileContent('source/scss/styles.scss', '@import "bourbon";');
+      assert.fileContent('source/scss/styles.scss', '@import "neat-settings";');
+      assert.fileContent('source/scss/styles.scss', '@import "neat";');
+      assert.fileContent('source/scss/styles.scss', '@import "grid";');
+      assert.fileContent('source/scss/modules/_forms.scss', '#{$all-text-inputs}');
+      assert.fileContent('source/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
+      assert.fileContent('source/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
+      assert.file('source/scss/_grid.scss');
+      assert.file('source/scss/_neat-settings.scss');
     });
 
     describe('with style guide', function () {
@@ -76,10 +76,10 @@ describe('surprise:bourbon', function () {
         assert.noFileContent('package.json', '"bourbon-neat": "^1.8.0"');
       });
 
-      it('is not required in the gulpfile', function () {
-        assert.noFileContent('gulpfile.js', 'bourbon = require(\'bourbon\')');
-        assert.noFileContent('gulpfile.js', 'neat = require(\'bourbon-neat\')');
-        assert.noFileContent('gulpfile.js', '{includePaths: bourbon.includePaths.concat(neat.includePaths)}');
+      it('is not required in the gulp task', function () {
+        assert.noFileContent('gulp-tasks/styles.js', "import bourbon from 'bourbon';");
+        assert.noFileContent('gulp-tasks/styles.js', "import neat from 'bourbon-neat';");
+        assert.noFileContent('gulp-tasks/styles.js', '{includePaths: bourbon.includePaths.concat(neat.includePaths)}');
       });
 
       it('is not included in the readme', function () {
@@ -87,15 +87,15 @@ describe('surprise:bourbon', function () {
       });
 
       it('does not generate scss', function () {
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "bourbon";');
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "neat-settings";');
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "neat";');
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "grid";');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs}');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
-        assert.noFile(docRoot+'/assets/scss/_grid.scss');
-        assert.noFile(docRoot+'/assets/scss/_neat-settings.scss');
+        assert.noFileContent('source/scss/styles.scss', '@import "bourbon";');
+        assert.noFileContent('source/scss/styles.scss', '@import "neat-settings";');
+        assert.noFileContent('source/scss/styles.scss', '@import "neat";');
+        assert.noFileContent('source/scss/styles.scss', '@import "grid";');
+        assert.noFileContent('source/scss/modules/_forms.scss', '#{$all-text-inputs}');
+        assert.noFileContent('source/scss/modules/_forms.scss', '#{$all-text-inputs-focus}');
+        assert.noFileContent('source/scss/modules/_styleguide.scss', 'Bourbon Neat Style Guide styles');
+        assert.noFile('source/scss/_grid.scss');
+        assert.noFile('source/scss/_neat-settings.scss');
       });
     });
 });

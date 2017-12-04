@@ -35,7 +35,7 @@ describe('surprise:project-name', function () {
   });
 
   it('generates the same pascal case name in every file', function () {
-    assert.fileContent('public_html/assets/js/common.js', pascalName);
-    assert.fileContent('public_html/assets/js/site.js', pascalName);
+    assert.fileContent('source/js/common.js', pascalName);
+    assert.fileContent('source/js/site.js', pascalName);
   });
 });

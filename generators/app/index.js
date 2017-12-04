@@ -117,14 +117,18 @@ module.exports = yeoman.generators.Base.extend({
 	scaffoldFolders: function(){
 		mkdirp(docRoot+'/assets');
 		mkdirp(docRoot+'/assets/components');
-		mkdirp(docRoot+'/assets/css');
+		mkdirp(docRoot+'/assets/dist');
+		mkdirp(docRoot+'/assets/dist/js');
+		mkdirp(docRoot+'/assets/dist/css');
 		mkdirp(docRoot+'/assets/img');
-		mkdirp(docRoot+'/assets/js');
-		mkdirp(docRoot+'/assets/js/build');
 		mkdirp(docRoot+'/assets/scss');
 		mkdirp(docRoot+'/assets/vendor');
 		mkdirp(docRoot+'/mockups');
 		mkdirp(docRoot+'/mockups/_includes');
+		mkdirp('/gulp-tasks');
+		mkdirp('/source');
+		mkdirp('/source/js');
+		mkdirp('/source/scss');
 	},
 
 	writing: {
@@ -139,17 +143,37 @@ module.exports = yeoman.generators.Base.extend({
 			);
 		},
 
+
 		gulpfile: function () {
 			this.fs.copyTpl(
-				this.templatePath('_gulpfile.js'),
-				this.destinationPath('gulpfile.js'),
+				this.templatePath('_gulpfile.babel.js'),
+				this.destinationPath('gulpfile.babel.js'),
 				{
 					date: this.props.date,
 					genName: pkg.name,
 					genVersion: pkg.version,
+					appName: this.props.packageName,
 					docRoot: docRoot,
 					framework: this.props.framework,
 					addStyleGuide: this.props.addStyleGuide
+				}
+			);
+			this.fs.copy(
+				this.templatePath('gulp-tasks/**/*'),
+				this.destinationPath('gulp-tasks/')
+			);
+			this.fs.copyTpl(
+				this.templatePath('gulp-tasks/styles.js'),
+				this.destinationPath('gulp-tasks/styles.js'),
+				{
+					framework: this.props.framework
+				}
+			);
+			this.fs.copyTpl(
+				this.templatePath('gulp-tasks/paths.js'),
+				this.destinationPath('gulp-tasks/paths.js'),
+				{
+					docRoot: docRoot
 				}
 			);
 		},
@@ -180,6 +204,11 @@ module.exports = yeoman.generators.Base.extend({
 		},
 
 		project: function() {
+			this.fs.copyTpl(
+				this.templatePath('project/_babelrc'),
+				this.destinationPath('.babelrc'),
+				{ docRoot: docRoot }
+			);
 			this.fs.copyTpl(
 				this.templatePath('project/_bowerrc'),
 				this.destinationPath('.bowerrc'),
@@ -224,14 +253,15 @@ module.exports = yeoman.generators.Base.extend({
 			/* Copy the common scss assets */
 			this.fs.copy(
 				this.templatePath('scss/common/**/*'),
-				this.destinationPath(docRoot+'/assets/scss/')
+				this.destinationPath('source/scss/')
 			);
 
 			/* Render the main styles.scss template */
 			this.fs.copyTpl(
 				this.templatePath('scss/default/styles.scss'),
-				this.destinationPath(docRoot+'/assets/scss/styles.scss'),
+				this.destinationPath('source/scss/styles.scss'),
 				{
+					docRoot: docRoot,
 					framework: this.props.framework,
 					addStyleGuide: this.props.addStyleGuide
 				}
@@ -239,19 +269,19 @@ module.exports = yeoman.generators.Base.extend({
 
 			this.fs.copyTpl(
 				this.templatePath('scss/default/_base.scss'),
-				this.destinationPath(docRoot+'/assets/scss/_base.scss'),
+				this.destinationPath('source/scss/_base.scss'),
 				{ framework: this.props.framework }
 			);
 
 			this.fs.copyTpl(
 				this.templatePath('scss/default/modules/_forms.scss'),
-				this.destinationPath(docRoot+'/assets/scss/modules/_forms.scss'),
+				this.destinationPath('source/scss/modules/_forms.scss'),
 				{ framework: this.props.framework }
 			);
 
 			this.fs.copy(
 				this.templatePath('scss/default/_variables.scss'),
-				this.destinationPath(docRoot+'/assets/scss/_variables.scss')
+				this.destinationPath('source/scss/_variables.scss')
 			);
 		},
 
@@ -261,46 +291,51 @@ module.exports = yeoman.generators.Base.extend({
 				case 'incBourbonNeat':
 					this.fs.copy(
 						this.templatePath('scss/bourbon-neat/**/*'),
-						this.destinationPath(docRoot+'/assets/scss/')
+						this.destinationPath('source/scss/')
 					);
 					break;
 				case 'incFoundation':
-					this.fs.copy(
-						this.templatePath('/scss/foundation/_foundation.scss'),
-						this.destinationPath(docRoot+'/assets/scss/vendor/_foundation.scss')
+					this.fs.copyTpl(
+						this.templatePath('scss/foundation/_foundation.scss'),
+						this.destinationPath('source/scss/vendor/_foundation.scss'),
+						{ docRoot: docRoot }
 					);
 
-					this.fs.copy(
-						this.templatePath('/scss/foundation/_settings.scss'),
-						this.destinationPath(docRoot+'/assets/scss/vendor/_settings.scss')
+					this.fs.copyTpl(
+						this.templatePath('scss/foundation/_settings.scss'),
+						this.destinationPath('source/scss/vendor/_settings.scss'),
+						{ docRoot: docRoot }
 					);
 
 					this.fs.copy(
 						this.templatePath('scss/foundation/modules/**/*'),
-						this.destinationPath(docRoot+'/assets/scss/modules/')
-					);
-					break;
-				case 'incBootstrap':
-					this.fs.copy(
-						this.templatePath('/scss/bootstrap/_bootstrap-custom.scss'),
-						this.destinationPath(docRoot+'/assets/scss/vendor/_bootstrap-custom.scss')
+						this.destinationPath('source/scss/modules/')
 					);
 
-					this.fs.copy(
+					break;
+				case 'incBootstrap':
+					this.fs.copyTpl(
+						this.templatePath('scss/bootstrap/_bootstrap-custom.scss'),
+						this.destinationPath('source/scss/vendor/_bootstrap-custom.scss'),
+						{ docRoot: docRoot }
+					);
+
+					this.fs.copyTpl(
 						this.templatePath('scss/bootstrap/_bootstrap-settings.scss'),
-						this.destinationPath(docRoot+'/assets/scss/vendor/_bootstrap-settings.scss')
+						this.destinationPath('source/scss/vendor/_bootstrap-settings.scss'),
+						{ docRoot: docRoot }
 					);
 
 					this.fs.copy(
 						this.templatePath('scss/bootstrap/modules/**/*'),
-						this.destinationPath(docRoot+'/assets/scss/modules/')
+						this.destinationPath('source/scss/modules/')
 					);
 					break;
 				default:
 					if(this.props.addStyleGuide) {
 						this.fs.copy(
 							this.templatePath('scss/default/modules/_styleguide.scss'),
-							this.destinationPath(docRoot+'/assets/scss/modules/_styleguide.scss')
+							this.destinationPath('source/scss/modules/_styleguide.scss')
 						);
 					}
 				}
@@ -313,7 +348,7 @@ module.exports = yeoman.generators.Base.extend({
 
 			this.fs.copyTpl(
 				this.templatePath('js/**/*'),
-				this.destinationPath(docRoot+'/assets/js/'),
+				this.destinationPath('source/js/'),
 				context
 			);
 
@@ -364,9 +399,9 @@ module.exports = yeoman.generators.Base.extend({
 			}.bind(this)
 		});
 
-		var tasks = ['styles', 'scripts', 'bower'];
+		var tasks = ['dist', 'wire:mockups'];
 
-		if(this.props.addStyleGuide) { tasks.push('bower:styleguide'); }
+		if(this.props.addStyleGuide) { tasks.push('wire:styleguide'); }
 
 		this.on('dependenciesInstalled', function() {
 			/*
