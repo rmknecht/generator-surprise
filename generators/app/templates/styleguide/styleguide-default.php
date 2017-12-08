@@ -413,6 +413,6 @@
         <!-- bower:js -->
         <!-- endbower -->
 
-        <script src="/assets/js/build/site.min.js"></script>
+        <script src="<?php echo '/assets/dist/'.gulp_rev('js/site.min.js'); ?>"></script>
     </body>
 </html>
