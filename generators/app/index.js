@@ -15,7 +15,7 @@ module.exports = yeoman.generators.Base.extend({
 	_updateCheck: function(){
 		var notifier = updateNotifier({
 			pkg: pkg,
-			updateCheckInterval: 1000 * 60 * 60 * 24 // one day
+			updateCheckInterval: 0 // 1000 * 60 * 60 * 24 // one day
 		});
 
 		notifier.notify({defer: false});
