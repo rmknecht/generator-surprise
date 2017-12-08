@@ -28,10 +28,11 @@ describe('surprise:generator', function () {
       'public_html/assets/dist/js',
       'public_html/assets/img',
       'public_html/assets/vendor',
-      'source/js',
-      'source/scss',
       'public_html/mockups',
       'public_html/mockups/_includes',
+      'source/js',
+      'source/scss',
+      'gulp-tasks'
     ]);
   });
 
