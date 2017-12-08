@@ -4,8 +4,6 @@
 
 */
 
-/* Common paths */
-
 // Enter the proxy url running your local php server
 const local_proxy = '<%= appName %>.dev';
 
@@ -74,26 +72,3 @@ gulp.task('watch', function() {
 
 // Our default gulp tasks.
 gulp.task('default', ['dist', 'watch'], function(){});
-
-/*
-
-	Generated on <%= date %> using <%= genName %> <%= genVersion %>
-
-*/
-
-/* Common paths */
-var http_path = '<%= docRoot %>',
-	asset_path = http_path + '/assets',
-	css_dir = asset_path + '/css',
-	scss_dir = asset_path + '/scss',
-	images_dir = asset_path + '/img',
-	js_dir =  asset_path + '/js',
-	js_build_dir =  asset_path + '/js/build';
-
-/* JavaScript asset paths. */
-var js_assets = [
-	asset_path + '/components/jquery-placeholder/jquery.placeholder.min.js',
-	js_dir + '/plugins.js',
-	js_dir + '/common.js',
-	js_dir + '/site.js'
-];
