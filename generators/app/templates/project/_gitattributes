@@ -2,8 +2,8 @@
 *.css linguist-vendored
 *.less linguist-vendored
 <%= docRoot %>/assets/components/* linguist-vendored
-<%= docRoot %>/assets/js/build/* linguist-vendored
+<%= docRoot %>/assets/dist/js/* linguist-vendored
 <%= docRoot %>/assets/vendor/* linguist-vendored
 <%= docRoot %>/mockups/* linguist-vendored
-<%= docRoot %>/assets/js/build/*.js binary
-<%= docRoot %>/assets/css/*.css binary
+<%= docRoot %>/assets/dist/js/*.js binary
+<%= docRoot %>/assets/dist/css/*.css binary

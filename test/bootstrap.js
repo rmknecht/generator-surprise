@@ -22,11 +22,11 @@ describe('surprise:boostrap', function () {
     });
 
     it('generates the correct scss files', function () {
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/bootstrap-settings";');
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/bootstrap-custom";');
-      assert.fileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Style guide styles for Bootstrap SASS');
-      assert.file(docRoot+'/assets/scss/vendor/_bootstrap-custom.scss');
-      assert.file(docRoot+'/assets/scss/vendor/_bootstrap-settings.scss');
+      assert.fileContent('source/scss/styles.scss', '@import "vendor/bootstrap-settings";');
+      assert.fileContent('source/scss/styles.scss', '@import "vendor/bootstrap-custom";');
+      assert.fileContent('source/scss/modules/_styleguide.scss', 'Style guide styles for Bootstrap SASS');
+      assert.file('source/scss/vendor/_bootstrap-custom.scss');
+      assert.file('source/scss/vendor/_bootstrap-settings.scss');
     });
 
     describe('with style guide', function () {
@@ -61,7 +61,7 @@ describe('surprise:boostrap', function () {
       });
 
       it('imports _normalize.scss in styles.scss', function () {
-        assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "../components/normalize-scss/_normalize.scss";');
+        assert.fileContent('source/scss/styles.scss', '@import "../../public_html/assets/components/normalize-scss/_normalize.scss";');
       });
 
       it('is not included in the readme file', function () {
@@ -69,11 +69,11 @@ describe('surprise:boostrap', function () {
       });
 
       it('does not generates scss', function () {
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/bootstrap-settings";');
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/bootstrap-custom";');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Style guide styles for Bootstrap SASS');
-        assert.noFile(docRoot+'/assets/scss/vendor/_bootstrap-custom.scss');
-        assert.noFile(docRoot+'/assets/scss/vendor/_bootstrap-settings.scss');
+        assert.noFileContent('source/scss/styles.scss', '@import "vendor/bootstrap-settings";');
+        assert.noFileContent('source/scss/styles.scss', '@import "vendor/bootstrap-custom";');
+        assert.noFileContent('source/scss/modules/_styleguide.scss', 'Style guide styles for Bootstrap SASS');
+        assert.noFile('source/scss/vendor/_bootstrap-custom.scss');
+        assert.noFile('source/scss/vendor/_bootstrap-settings.scss');
       });
     });
 });

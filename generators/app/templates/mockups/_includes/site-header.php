@@ -1,3 +1,4 @@
+<?php require('_functions.php') ?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -9,9 +10,7 @@
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <!-- bower:css -->
         <!-- endbower -->
-        <link rel="stylesheet" href="/assets/css/styles.min.css">
-        <!--[if lt IE 9]><script src="/assets/components/html5-shiv/dist/html5shiv.js"></script><![endif]-->
-        <script src="/assets/components/modernizr/modernizr.js"></script>
+        <link rel="stylesheet" href="<?php echo '/assets/dist/'.gulp_rev('css/styles.min.css'); ?>">
     </head>
     <body>
 

@@ -24,11 +24,11 @@ describe('surprise:styleguide', function () {
     });
 
     it('imports a style guide scss module', function () {
-      assert.fileContent(docRoot + '/assets/scss/styles.scss', '@import "modules/styleguide";');
+      assert.fileContent('source/scss/styles.scss', '@import "modules/styleguide";');
     });
 
     it('creates a style guide scss module', function () {
-      assert.file(docRoot + '/assets/scss/modules/_styleguide.scss');
+      assert.file('source/scss/modules/_styleguide.scss');
     });
 
     it('creates a style guide document', function () {
@@ -48,11 +48,11 @@ describe('surprise:styleguide', function () {
       });
 
       it('does not import a style guide scss module', function () {
-        assert.noFileContent(docRoot + '/assets/scss/styles.scss', '@import "modules/styleguide";');
+        assert.noFileContent('source/scss/styles.scss', '@import "modules/styleguide";');
       });
 
       it('does not create style guide scss module', function () {
-        assert.noFile(docRoot + '/assets/scss/modules/_styleguide.scss');
+        assert.noFile('source/scss/modules/_styleguide.scss');
       });
 
       it('does not create a style guide document', function () {

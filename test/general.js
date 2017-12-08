@@ -23,23 +23,26 @@ describe('surprise:generator', function () {
       'public_html/',
       'public_html/assets',
       'public_html/assets/components',
-      'public_html/assets/css',
+      'public_html/assets/dist',
+      'public_html/assets/dist/css',
+      'public_html/assets/dist/js',
       'public_html/assets/img',
-      'public_html/assets/js',
-      'public_html/assets/js/build',
-      'public_html/assets/scss',
       'public_html/assets/vendor',
       'public_html/mockups',
       'public_html/mockups/_includes',
+      'source/js',
+      'source/scss',
+      'gulp-tasks'
     ]);
   });
 
   it('creates expected files', function () {
     assert.file([
       'package.json',
-      'gulpfile.js',
+      'gulpfile.babel.js',
       'bower.json',
       'README.md',
+      '.babelrc',
       '.bowerrc',
       '.editorconfig',
       '.gitattributes',
@@ -55,14 +58,14 @@ describe('surprise:generator', function () {
       'public_html/robots.txt',
       'public_html/tile-wide.png',
       'public_html/tile.png',
-      'public_html/assets/scss/_mixins.scss',
-      'public_html/assets/scss/styles.scss',
-      'public_html/assets/scss/_base.scss',
-      'public_html/assets/scss/_variables.scss',
-      'public_html/assets/scss/modules/_forms.scss',
-      'public_html/assets/scss/modules/_buttons.scss',
-      'public_html/assets/scss/modules/_footer.scss',
-      'public_html/assets/scss/modules/_header.scss'
+      'source/scss/_mixins.scss',
+      'source/scss/styles.scss',
+      'source/scss/_base.scss',
+      'source/scss/_variables.scss',
+      'source/scss/modules/_forms.scss',
+      'source/scss/modules/_buttons.scss',
+      'source/scss/modules/_footer.scss',
+      'source/scss/modules/_header.scss'
     ]);
   });
 });

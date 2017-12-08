@@ -26,11 +26,11 @@ describe('surprise:foundation', function () {
     });
 
     it('generates the correct scss files', function () {
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/settings";');
-      assert.fileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/foundation";');
-      assert.fileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Style guide styles for Foundation 6');
-      assert.file(docRoot+'/assets/scss/vendor/_foundation.scss');
-      assert.file(docRoot+'/assets/scss/vendor/_settings.scss');
+      assert.fileContent('source/scss/styles.scss', '@import "vendor/settings";');
+      assert.fileContent('source/scss/styles.scss', '@import "vendor/foundation";');
+      assert.fileContent('source/scss/modules/_styleguide.scss', 'Style guide styles for Foundation 6');
+      assert.file('source/scss/vendor/_foundation.scss');
+      assert.file('source/scss/vendor/_settings.scss');
     });
 
     describe('with style guide', function () {
@@ -69,11 +69,11 @@ describe('surprise:foundation', function () {
       });
 
       it('does not generates the scss', function () {
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/settings";');
-        assert.noFileContent(docRoot+'/assets/scss/styles.scss', '@import "vendor/foundation";');
-        assert.noFileContent(docRoot+'/assets/scss/modules/_styleguide.scss', 'Style guide styles for Foundation 6');
-        assert.noFile(docRoot+'/assets/scss/vendor/_foundation.scss');
-        assert.noFile(docRoot+'/assets/scss/vendor/_settings.scss');
+        assert.noFileContent('source/scss/styles.scss', '@import "vendor/settings";');
+        assert.noFileContent('source/scss/styles.scss', '@import "vendor/foundation";');
+        assert.noFileContent('source/scss/modules/_styleguide.scss', 'Style guide styles for Foundation 6');
+        assert.noFile('source/scss/vendor/_foundation.scss');
+        assert.noFile('source/scss/vendor/_settings.scss');
       });
     });
 });
