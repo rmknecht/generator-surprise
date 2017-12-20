@@ -121,10 +121,10 @@ module.exports = yeoman.generators.Base.extend({
 		mkdirp(docRoot+'/assets/dist/js');
 		mkdirp(docRoot+'/assets/dist/css');
 		mkdirp(docRoot+'/assets/img');
-		mkdirp(docRoot+'/assets/scss');
 		mkdirp(docRoot+'/assets/vendor');
 		mkdirp(docRoot+'/mockups');
 		mkdirp(docRoot+'/mockups/_includes');
+		mkdirp(docRoot+'/mockups/assets');
 		mkdirp('/gulp-tasks');
 		mkdirp('/source');
 		mkdirp('/source/js');
@@ -197,6 +197,7 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('README.md'),
 				{
 					appName: this.props.appName,
+					packageName: this.props.packageName,
 					docRoot: docRoot,
 					framework: this.props.framework
 				}

@@ -22,6 +22,7 @@ describe('surprise:project-name', function () {
   });
 
   it('generates the same package name in every file', function () {
+    assert.fileContent('README.md', packageName);
     assert.fileContent('package.json', packageName);
     assert.fileContent('bower.json', packageName);
   });

@@ -5,7 +5,7 @@
 */
 
 // Enter the proxy url running your local php server
-const local_proxy = '<%= appName %>.dev';
+const local_proxy = '<%= appName %>.localhost';
 
 import { HTTP_PATH, SCSS_DIR, JS_DIR } from './gulp-tasks/paths';
 

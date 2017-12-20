@@ -30,6 +30,7 @@ describe('surprise:generator', function () {
       'public_html/assets/vendor',
       'public_html/mockups',
       'public_html/mockups/_includes',
+      'public_html/mockups/assets',
       'source/js',
       'source/scss',
       'gulp-tasks'
