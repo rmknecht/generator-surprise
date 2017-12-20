@@ -1,6 +1,6 @@
 {
   "name": "generator-surprise",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Yeoman Generator for Surprise Highway project front ends.",
   "license": "MIT",
   "main": "app/index.js",
